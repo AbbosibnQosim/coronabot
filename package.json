@@ -1,0 +1,22 @@
+{
+  "name": "coronabot",
+  "version": "1.0.0",
+  "description": "A telegram bot for users to get info about Cov-19 statistics",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/AbbosibnQosim/coronabot.git"
+  },
+  "author": "Abbos Qosim",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AbbosibnQosim/coronabot/issues"
+  },
+  "homepage": "https://github.com/AbbosibnQosim/coronabot#readme",
+  "dependencies": {
+    "telegraf": "^3.38.0"
+  }
+}
