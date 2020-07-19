@@ -17,6 +17,10 @@
   },
   "homepage": "https://github.com/AbbosibnQosim/coronabot#readme",
   "dependencies": {
-    "telegraf": "^3.38.0"
+    "axios": "^0.19.2",
+    "firebase": "^7.16.1",
+    "fs": "0.0.1-security",
+    "telegraf": "^3.38.0",
+    "telegraf-inline-menu": "^4.0.0"
   }
 }
