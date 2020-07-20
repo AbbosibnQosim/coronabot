@@ -1,0 +1,25 @@
+Kukilar asosan klient browserida server uchun kerakli bo'lgan informatsiyalar saqlash uchun ishlatilinadi.
+
+Facebook kukilari
+
+act - bu kuki foydalanuvchi facebookka kirgan vaqtning Unix vaqt taymstampidir ya'ni kirilgan vaqtni ifodalaydi. Bu asosan bir foydalanuvchining ikki sessiyasini farqlash uchun ishlatilinadi.
+
+c-user - bu kuki facebook foydalanuchisining user id sini ifodalaydi.
+
+datr - bu kukining foydalanuvchi tomonidan qanday web browser ishlatilayotganini aniqlash uchun ishlatiladi ya'ni bundagi qiymat web browser haqidagi ma'lumot bo'ladi. 
+
+fr- bu kuki asosan facebook foydalanuvchi uchun qanday personal reklama taqdim etish uchun foydalaniladi. Bu kuki foydalanuvchi kuzatgan web saytlar va pagelar yordamida shakllanadi va shu tariqa facebook foydalanuvchiga o'zi qiziqqan reklamalar taqdim etish imkoniyatiga ega bo'ladi.
+
+locale - bu kuki foydalanuvchining diplay locale ya'ni displaydagi yozuv tili uchun ishlatiladi bu kuki foydalanuvchi tizimdan chiqqan paytda browserga joylanadi, ya'ni foydalanuvchi contentni qaysi tilda ko'rgan bo'lsa keyingi tizimga kirishda ham shu tilda ko'rsatish uchun foydalaniladi.
+
+presence - bu kuki foydalanuvchi chat holatini saqlash uchun ishlatiladi. Ya'ni qaysi chat tablari ochilgani haqida
+
+sb - facebook tomonidan friend suggestionni qulaylashtirish uchun ishlatiladi, ya'ni facebookda do'stlashish mumkin bo'lgan foydalanuvchilar ro'yxatini joylash uchun ishlatilinadi.
+
+xs - facebook tomonidan sessiyani saqlash uchun ishlatilad, bu kuki c_user kukisi bilan birgalikda ishlatilinadi. Har bir ma'lumot %3A shu ifoda bilan ajratiladi. Birinchi qism sessiya raqamini ifodalaydi. Ikkinchi qism sessiya sekretni ifodalaydi, uchinchi qism esa secure bayroqchasini ya'ni foydalanuvchi maxfiy ko'rib chiqish xususiyatini holatida foydalanayotgan holda joylashtiriladi
+
+wd - bu kuki window dimension ya'ni ekran o'lchamlari haqida ma'lumot saqlaydi va facebook bu ma'lumotga asosan foydalanuvchiga ekraniga qulay bo'lgan ko'rinish taqdim etish uchun ishlatadi.
+
+x-src - bu kuki ham reklama foydalanuvchi qiziqishlarig mos berilishi uchun va bir xil reklama takror va takror berilishini oldini olish uchun ishlatilinadi.
+
+Ko'p kuki qiymatlari kodlangan bo'ladi va o'quvchi undagi qiymatlarni tushunmasligi mumkin.
