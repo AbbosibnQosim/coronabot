@@ -24,15 +24,12 @@ const sitesRef = ref.child("users");
 const menu = new TelegrafInlineMenu('Tilni tanglang. Выберите язык')
 menu.manual('UZ', 'uz', {root:true});
 menu.manual('RU', 'ru', {joinLastRow:true,root:true});
-menu.setCommand('start');
+menu.setCommand('lang');
 
 
 const bot = new Telegraf('1138236059:AAGn2HA22HKGpjT_I4T0yuyXAN0Y1rWp0h8');
 
-bot.use(menu.init({
-  backButtonText: 'Ortga',
-  mainMenuButtonText: 'Asosiy menyuga'
-}))
+
 bot.use(session())
 
 
@@ -46,7 +43,61 @@ async function startup() {
 
 
 
-bot.help((ctx) => ctx.reply(COUNTRIES_LIST));
+ bot.use(menu.init({
+  backButtonText: 'Ortga',
+  mainMenuButtonText: 'Asosiy menyuga'
+}))
+
+
+bot.start((ctx)=>{
+
+if(ctx.session.lang!=1&&ctx.session.lang!=0)
+{
+ const testMenu = Telegraf.Extra
+  .markdown()
+  .markup((m) => m.inlineKeyboard([
+    m.callbackButton('UZ', 'uz'),m.callbackButton('RU','ru')
+  ]))
+  ctx.reply('Tilni tanglang. Выберите язык',testMenu);
+}
+else
+{
+  if(ctx.session.lang==0)
+  {
+ctx.reply(
+    `RURU Ассалом Алайкум ${ctx.chat.first_name}!
+Коронавирус статистикасини - инглиз тилида мамлакат номини киритинг ва статистикани олинг.
+
+/help буйруғи билан мамлакатларнинг тўлиқ рўйхатини куришингиз мумкин RURU.
+`,
+    Markup.keyboard([
+      ['Uzbekistan', 'Russia'],
+      ['US', 'China'],
+    ])
+      .resize()
+      .extra()
+  )
+  }
+  else if(ctx.session.lang==1)
+  {
+    ctx.reply(
+    ` Ассалом Алайкум ${ctx.chat.first_name}!
+Коронавирус статистикасини - инглиз тилида мамлакат номини киритинг ва статистикани олинг.
+
+/help буйруғи билан мамлакатларнинг тўлиқ рўйхатини куришингиз мумкин.
+`,
+    Markup.keyboard([
+      ['Uzbekistan', 'Russia'],
+      ['US', 'China'],
+    ])
+      .resize()
+      .extra()
+  )
+  }
+}
+
+
+})
 
 bot.on('text', async (ctx) => {
   let data = {};
@@ -68,8 +119,7 @@ bot.on('text', async (ctx) => {
     // ⚡️Хозирда даволанаётган беморлар ➖ ${data[0][0].active_cases[0].currently_infected_patients}
   }
 });
-
-
+bot.help((ctx) => ctx.reply(COUNTRIES_LIST));
 
 bot.use((ctx, next) => {
  
@@ -78,6 +128,13 @@ bot.use((ctx, next) => {
   if (ctx.callbackQuery) {
     if(ctx.callbackQuery.data=='ru')
     {
+      if(ctx.session.lang==1||ctx.session.lang==0)
+      {
+         ctx.deleteMessage();
+          ctx.reply("Yazik changed");
+      }
+      else
+      {
       ctx.deleteMessage();
       sitesRef.push().set({
         user_id: ctx.chat.id,
@@ -97,10 +154,17 @@ bot.use((ctx, next) => {
     ])
       .resize()
       .extra()
-  )
+  )}
     }
     else if(ctx.callbackQuery.data=='uz')
     {
+      if(ctx.session.lang==1||ctx.session.lang==0)
+      {
+        ctx.deleteMessage();
+          ctx.reply("Til o'zgardi");
+      }
+      else
+      {
       ctx.deleteMessage();
       sitesRef.push().set({
         user_id: ctx.chat.id,
@@ -120,7 +184,7 @@ bot.use((ctx, next) => {
     ])
       .resize()
       .extra()
-  )
+  )}
     }
 
     console.log('another callbackQuery happened', ctx.callbackQuery.data.length, ctx.callbackQuery.data, ctx.session.lang);
