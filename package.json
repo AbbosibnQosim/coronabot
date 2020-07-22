@@ -19,6 +19,7 @@
   "dependencies": {
     "axios": "^0.19.2",
     "covid19-api": "^1.2.1",
+    "epsilonjs": "^2.0.2",
     "firebase": "^7.16.1",
     "fs": "0.0.1-security",
     "telegraf": "^3.38.0",

@@ -7,6 +7,7 @@ const fs = require('fs')
 const api = require('covid19-api');
 const COUNTRIES_LIST = require('./HelpCountries');
 const Markup = require('telegraf/markup');
+const epsilon =require('epsilonjs');
 
 const firebase = require('firebase');
 const app = firebase.initializeApp({
@@ -27,7 +28,7 @@ menu.manual('RU', 'ru', {joinLastRow:true,root:true});
 menu.setCommand('lang');
 
 
-const bot = new Telegraf('1138236059:AAGn2HA22HKGpjT_I4T0yuyXAN0Y1rWp0h8');
+const bot = new Telegraf('BOTAPI');
 
 
 bot.use(session())
