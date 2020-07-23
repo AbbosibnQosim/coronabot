@@ -31,7 +31,7 @@ menu.manual('RU', 'ru', {
 menu.setCommand('lang');
 
 
-const bot = new Telegraf('BOT_API');
+const bot = new Telegraf('BOTAPI');
 
 
 bot.use(session())
@@ -147,7 +147,14 @@ bot.use((ctx, next) => {
       if (ctx.session.lang == 1 || ctx.session.lang == 0) {
         ctx.deleteMessage();
         ctx.session.lang = 0;
-        ctx.reply("Language changed");
+        ctx.reply("Language changed",
+        Markup.keyboard([
+          ['Uzbekistan', 'Russia'],
+          ['US', 'China'],
+          [`Выберите язык`],
+        ])
+        .resize()
+        .extra());
       } else {
         ctx.deleteMessage();
         sitesRef.push().set({
@@ -175,7 +182,15 @@ bot.use((ctx, next) => {
       if (ctx.session.lang == 1 || ctx.session.lang == 0) {
         ctx.deleteMessage();
         ctx.session.lang = 1;
-        ctx.reply("Til o'zgardi");
+        ctx.reply("Til o'zgardi",
+        Markup.keyboard([
+          ['Uzbekistan', 'Russia'],
+          ['US', 'China'],
+          [`Tilni tanlash`]
+        ])
+        .resize()
+        .extra()
+        );
       } else {
         ctx.deleteMessage();
         sitesRef.push().set({
